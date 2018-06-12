@@ -1,0 +1,393 @@
+<!DOCTYPE>
+<html>
+<style>
+  #chartSVG {
+    width: 100%;
+    height: 600px;
+  }
+</style>
+<body>
+  <p>svg:</p>
+  <div id="chartSVG">
+    <svg class="chart-container" font-size="12" width="1000px" height="1000px" style="background: white; display: block;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+      version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+
+        .chart-container .node image {
+          cursor: pointer
+        }
+
+        .chart-container .node .circle {
+          fill: #fff;
+          stroke: #d4dadf;
+          stroke-width: 2px
+        }
+
+        .chart-container .node.blur-node .circle {
+          fill: #fbfbfb
+        }
+
+        .chart-container .node.start-node .circle {
+          fill: lime;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.end-node .circle {
+          fill: red;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node .circle,
+        .chart-container .node.current-node[node-type=Person] .circle {
+          fill: #f18424;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node[node-type=Company] .circle {
+          fill: #008cff;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node[node-type=Bid_detail] .circle {
+          fill: #8b72e5;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node[node-type=Court_bulletin_doc] .circle {
+          fill: #757f89;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node[node-type=Judge_process] .circle {
+          fill: #b99465;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node[node-type=Judgement_wenshu] .circle {
+          fill: #d7a048;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node[node-type=Court_announcement_doc] .circle {
+          fill: #6e80de;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node[node-type=Company_belong] .circle {
+          fill: #5ebc00;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.hover-node .circle,
+        .chart-container .node.hover-node[node-type=Person] .circle {
+          fill: rgba(241, 132, 36, .6);
+          stroke-width: 0px
+        }
+
+        .chart-container .node.hover-node[node-type=Company] .circle {
+          fill: rgba(0, 140, 255, .6);
+          stroke-width: 0px
+        }
+
+        .chart-container .node.hover-node[node-type=Bid_detail] .circle {
+          fill: rgba(139, 114, 229, .6);
+          stroke-width: 0px
+        }
+
+        .chart-container .node.hover-node[node-type=Court_bulletin_doc] .circle {
+          fill: hsla(210, 8%, 50%, .6);
+          stroke-width: 0px
+        }
+
+        .chart-container .node.hover-node[node-type=Judge_process] .circle {
+          fill: hsla(34, 38%, 56%, .6);
+          stroke-width: 0px
+        }
+
+        .chart-container .node.hover-node[node-type=Judgement_wenshu] .circle {
+          fill: rgba(215, 160, 72, .6);
+          stroke-width: 0px
+        }
+
+        .chart-container .node.hover-node[node-type=Court_announcement_doc] .circle {
+          fill: rgba(110, 128, 222, .6);
+          stroke-width: 0px
+        }
+
+        .chart-container .node.hover-node[node-type=Company_belong] .circle {
+          fill: rgba(94, 188, 0, .6);
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=shareholder_mergeNode] .circle {
+          fill: #7a67cb;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=money_flow_mergeNode] .circle {
+          fill: #f97411;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=officer_mergeNode] .circle {
+          fill: #7f9eff;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=invest_mergeNode] .circle {
+          fill: #c3cd45;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=concert_mergeNode] .circle {
+          fill: #41c7ca;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=sue_mergeNode] .circle {
+          fill: #c9165d;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=bid_mergeNode] .circle {
+          fill: #3d79d8;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=guarantee_mergeNode] .circle {
+          fill: #f8090c;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=out_control_shareholder_mergeNode] .circle {
+          fill: #109e52;
+          stroke-width: 0px
+        }
+
+        .chart-container .node[node-type=out_actual_controller_mergeNode] .circle {
+          fill: #90d055;
+          stroke-width: 0px
+        }
+
+        .chart-container .node.current-node[node-type=shareholder_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=shareholder_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(122, 103, 203, .4)
+        }
+
+        .chart-container .node.current-node[node-type=money_flow_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=money_flow_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(249, 116, 17, .4)
+        }
+
+        .chart-container .node.current-node[node-type=officer_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=officer_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(127, 158, 255, .4)
+        }
+
+        .chart-container .node.current-node[node-type=invest_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=invest_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(195, 205, 69, .4)
+        }
+
+        .chart-container .node.current-node[node-type=concert_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=concert_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(65, 199, 202, .4)
+        }
+
+        .chart-container .node.current-node[node-type=sue_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=sue_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(201, 22, 93, .4)
+        }
+
+        .chart-container .node.current-node[node-type=bid_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=bid_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(61, 121, 216, .4)
+        }
+
+        .chart-container .node.current-node[node-type=guarantee_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=guarantee_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(248, 9, 12, .4)
+        }
+
+        .chart-container .node.current-node[node-type=out_control_shareholder_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=out_control_shareholder_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(16, 158, 82, .4)
+        }
+
+        .chart-container .node.current-node[node-type=out_actual_controller_mergeNode] .circle,
+        .chart-container .node.hover-node[node-type=out_actual_controller_mergeNode] .circle {
+          stroke-width: 3px;
+          stroke: rgba(144, 208, 85, .4)
+        }
+
+        .chart-container .node-name {
+          stroke: none;
+          fill: #44494f
+        }
+
+        .chart-container .node-name.node-name-blur {
+          fill: #a3a9b0
+        }
+
+        .chart-container .node-name.node-name-highlight {
+          fill: #475461;
+          font-weight: 700
+        }
+
+        .chart-container .node-name .risk-status {
+          fill: #d00001
+        }
+
+        .chart-container .link-name {
+          fill: #a3a9b0;
+          text-anchor: middle
+        }
+
+        .chart-container .link-name.officer {
+          fill: #ffcea2
+        }
+
+        .chart-container .link-name.invest {
+          fill: #a9d9ff
+        }
+
+        .chart-container .link-name.actual_controller,
+        .chart-container .link-name.concert,
+        .chart-container .link-name.control_shareholder,
+        .chart-container .link-name.control_shareholders,
+        .chart-container .link-name.guarantee {
+          fill: #fc4239
+        }
+
+        .chart-container .link-name.link-name-highlight {
+          fill: #475461
+        }
+
+        .chart-container .arrow-marker {
+          fill: #c1c8cf
+        }
+
+        .chart-container .arrow-marker.invest,
+        .chart-container .arrow-marker.shareholder {
+          fill: #a9d9ff
+        }
+
+        .chart-container .arrow-marker.officer {
+          fill: #ffcea2
+        }
+
+        .chart-container .arrow-marker.actual_controller,
+        .chart-container .arrow-marker.concert,
+        .chart-container .arrow-marker.control_shareholder,
+        .chart-container .arrow-marker.control_shareholders,
+        .chart-container .arrow-marker.guarantee {
+          fill: #fc4239
+        }
+
+        .chart-container .links {
+          cursor: default
+        }
+
+        .chart-container .links .guarantee:hover,
+        .chart-container .links .money_flow:hover,
+        .chart-container .links .personal_money_flow:hover {
+          cursor: pointer
+        }
+
+        .chart-container .link {
+          stroke: #c1c8cf;
+          fill: none
+        }
+
+        .chart-container .link.officer {
+          stroke: #ffcea2
+        }
+
+        .chart-container .link.invest {
+          stroke: #a9d9ff
+        }
+
+        .chart-container .link.actual_controller,
+        .chart-container .link.concert,
+        .chart-container .link.control_shareholder,
+        .chart-container .link.control_shareholders,
+        .chart-container .link.guarantee {
+          stroke: #fc4239
+        }
+
+        .chart-container .link.link-highlight {
+          stroke-width: 2px
+        }
+
+        .chart-container .link.link-dashed {
+          stroke-dasharray: 5, 5
+        }
+      </style>
+      <g class="chart-layer" transform="translate(396.80138596481606,72.02382391231691) scale(0.887825668377238)">
+        <g class="links">
+          <g class="control_shareholder">
+            <path class="link control_shareholder link-highlight" linkIndex="1" linkMap="1" marker-end="url(#arrow_control_shareholder)"
+              d="M105.88396545046959,550.0282484465671A0,0 0 0 1,269.07062949258153,348.03432860700826" id="control_shareholder/BC9F505B3AF7A0EC60512F1780B4F46D"></path>
+            <text class="link-name control_shareholder" transform="translate(-5, 0)">
+              <textPath xlink:href="#control_shareholder/BC9F505B3AF7A0EC60512F1780B4F46D" startOffset="50%">控股股东</textPath>
+            </text>
+          </g>
+        <!-- </g>
+        <g class="nodes">
+          <g class="node current-node" node-type="Company" transform="translate(269.07062949258153,348.03432860700826)">
+            <circle r="20" class="circle"></circle>
+            <text class="node-name" y="35" style="text-anchor: middle;">
+              <tspan y="35" x="0" class="">江阴华西村资本有限公司</tspan>
+            </text>
+          </g>
+          <g class="node" node-type="Company" transform="translate(105.88396545046959,550.0282484465671)">
+            <circle r="20" class="circle"></circle>
+            <text class="node-name" y="35" style="text-anchor: middle;">
+              <tspan y="35" x="0" class="">江苏华西村股份有限公司</tspan>
+            </text>
+          </g>
+        </g> -->
+      </g>
+      <defs>
+        <marker id="arrow_control_shareholder" class="arrow-marker control_shareholder" refX="29" refY="5" markerUnits="userSpaceOnUse"
+          markerWidth="20" markerHeight="20" orient="auto">
+          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+  <p>canvas:</p>
+  <canvas id="canvas"></canvas>
+
+</body>
+<script type="text/javascript" src="http://canvg.github.io/canvg/rgbcolor.js"></script>
+<script type="text/javascript" src="http://canvg.github.io/canvg/StackBlur.js"></script>
+<script type="text/javascript" src="./canvg.js"></script> 
+
+<script>
+
+  var svgDom = document.querySelector('#chartSVG').firstElementChild;
+  var xmlSVG;
+  if (XMLSerializer) {
+    xmlSVG = new XMLSerializer().serializeToString(svgDom);
+  } else if (svgDom.xml) {
+    xmlSVG = svgDom.xml;
+  }
+
+  canvg('canvas', xmlSVG);
+</script>
+
+</html>
