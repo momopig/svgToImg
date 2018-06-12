@@ -1185,7 +1185,7 @@
 
 		// circle element
 		svg.Element.circle = function(node) {
-			debugger
+			
 			this.base = svg.Element.PathElementBase;
 			this.base(node);
 
@@ -1314,7 +1314,7 @@
 
 		// path element
 		svg.Element.path = function(node) {
-			debugger
+			
 			this.base = svg.Element.PathElementBase;
 			this.base(node);
 
