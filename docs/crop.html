@@ -5,8 +5,42 @@
     width: 1000px;
     height: 1000px;
   }
-</style>
+  /* Apply these styles only when #preview-pane has
+   been placed within the Jcrop widget */
+.jcrop-holder {
+  background-color: #fff !important;
+  border: 1px solid #dedede;
+}
+.jcrop-holder #preview-pane {
+  display: block;
+  position: absolute;
+  z-index: 2000;
+  top: 10px;
+  right: -280px;
+  padding: 6px;
+  border: 1px rgba(0,0,0,.4) solid;
+  background-color: white;
 
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+
+  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* The Javascript code will set the aspect ratio of the crop
+   area based on the size of the thumbnail preview,
+   specified here */
+#preview-pane .preview-container {
+  width: 250px;
+  height: 170px;
+  overflow: hidden;
+}
+</style>
+<link rel="stylesheet" href="demo_files/demos.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
 <body>
   <p>svg:</p>
   <div id="chartSVG">
@@ -484,13 +518,18 @@
       </defs>
     </svg>
   </div>
-  <p>canvas:</p>
-  <canvas id="canvas"></canvas>
-
+  <p>img:</p>
+  <img id="target" />
+  <div id="preview-pane">
+    <div class="preview-container">
+      <img src="" class="jcrop-preview" alt="Preview" />
+    </div>
+  </div>
 </body>
 <script type="text/javascript" src="./jquery-1.12.4.js"></script>
 <script type="text/javascript" src="./jquery.base64.min.js"></script>
-<script src="../js/jquery.Jcrop.js"></script>
+<script type="text/javascript" src="./js/jquery.Jcrop.js"></script>
+
 
 <script>
   var compressSpaces = function (s) { return s.replace(/[\s\r\t\n]+/gm, ' '); }
@@ -536,27 +575,65 @@
     xmlSVG = svgDom.xml;
   }
   var url = 'data:image/svg+xml;base64,' + jQuery.base64.encode(unescape(encodeURIComponent(xmlSVG)));
-  var imageDom = new Image();
+  var imageDom = document.getElementById('target');
   imageDom.onload = function () {
-    // draw the image onto the canvas
-    // ctx.drawImage(imageDom, 0, 0);
     document.querySelector('body').appendChild(imageDom);
-    // saveSvgAsPng(svgDom, "diagram.png");
-    convertToPng(imageDom, imageDom.width, imageDom.height)
-  }
-  var convertToPng = function (src, width, height) {
-    var canvas = document.querySelector('#canvas');
-    var context = canvas.getContext('2d');
-    var pixelRatio = window.devicePixelRatio || 1;
+    // Create variables (in this scope) to hold the API and image size
+    var jcrop_api;
+    var boundx;
+    var boundy;
 
-    canvas.width = width * pixelRatio;
-    canvas.height = height * pixelRatio;
-    canvas.style.width = canvas.width;
-    canvas.style.height = canvas.height;
-    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-    context.drawImage(src, 0, 0);
+    // Grab some information about the preview pane
+    var $preview = $('#preview-pane');
+    var $pcnt = $('#preview-pane .preview-container');
+    var $pimg = $('#preview-pane .preview-container img');
+    var xsize = $pcnt.width();
+    var ysize = $pcnt.height();
+
+    $pimg.attr('src', url);
+    $('#target').Jcrop({
+      onChange: updatePreview,
+      onSelect: updatePreview,
+      aspectRatio: xsize / ysize
+    },function(){
+      // Use the API to get the real image size
+      var bounds = this.getBounds();
+      boundx = bounds[0];
+      boundy = bounds[1];
+
+      jcrop_api = this;
+      jcrop_api.animateTo([100,100,400,300]);
+
+      // Setup and dipslay the interface for "enabled"
+      $('#can_click,#can_move,#can_size').attr('checked','checked');
+      $('#ar_lock,#size_lock,#bg_swap').attr('checked',false);
+      $('.requiresjcrop').show();
+      // Move the preview into the jcrop container for css positioning
+      $preview.appendTo(jcrop_api.ui.holder);
+    });
+
+    function updatePreview(c)
+    {
+      
+      if (parseInt(c.w) > 0)
+      {
+        var rx = xsize / c.w;
+        var ry = ysize / c.h;
+
+        $pimg.css({
+          width: Math.round(rx * boundx) + 'px',
+          height: Math.round(ry * boundy) + 'px',
+          marginLeft: '-' + Math.round(rx * c.x) + 'px',
+          marginTop: '-' + Math.round(ry * c.y) + 'px'
+        });
+      }
+    };
+
   }
   imageDom.src = url;
+
+
+
 </script>
 
 </html>
