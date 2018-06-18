@@ -8,7 +8,6 @@
   /* Apply these styles only when #preview-pane has
    been placed within the Jcrop widget */
 .jcrop-holder {
-  background-color: #fff !important;
   border: 1px solid #dedede;
 }
 .jcrop-holder #preview-pane {
@@ -525,6 +524,8 @@
       <img src="" class="jcrop-preview" alt="Preview" />
     </div>
   </div>
+  <div id="crop">裁剪</div>
+  <canvas id="canvas"></canvas>
 </body>
 <script type="text/javascript" src="./jquery-1.12.4.js"></script>
 <script type="text/javascript" src="./jquery.base64.min.js"></script>
@@ -576,6 +577,7 @@
   }
   var url = 'data:image/svg+xml;base64,' + jQuery.base64.encode(unescape(encodeURIComponent(xmlSVG)));
   var imageDom = document.getElementById('target');
+  var locationInf;
   imageDom.onload = function () {
     document.querySelector('body').appendChild(imageDom);
     // Create variables (in this scope) to hold the API and image size
@@ -594,6 +596,10 @@
     $('#target').Jcrop({
       onChange: updatePreview,
       onSelect: updatePreview,
+      bgColor:     'white',
+      bgOpacity:   .4,
+      minSize: [xsize, ysize],
+      // setSelect:   [0, 0, 500, 500],
       aspectRatio: xsize / ysize
     },function(){
       // Use the API to get the real image size
@@ -612,11 +618,10 @@
       $preview.appendTo(jcrop_api.ui.holder);
     });
 
-    function updatePreview(c)
-    {
-      
-      if (parseInt(c.w) > 0)
-      {
+    function updatePreview(c) {
+      locationInf = c;
+      console.log(c);
+      if (parseInt(c.w) > 0) {
         var rx = xsize / c.w;
         var ry = ysize / c.h;
 
@@ -627,11 +632,40 @@
           marginTop: '-' + Math.round(ry * c.y) + 'px'
         });
       }
+
     };
 
   }
   imageDom.src = url;
-
+  $('#crop').on('click', function() {
+    var canvas = document.getElementById('canvas');
+    var $img = $('.jcrop-holder img');
+    canvas.width = locationInf.w;
+    canvas.height = locationInf.h;
+    canvas.style.backgroundColor = 'white';
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(imageDom, locationInf.x, locationInf.y, locationInf.w, locationInf.h, 0, 0, locationInf.w, locationInf.h)
+    var url = canvas.toDataURL('image/png');
+    var a = document.createElement('a');
+    var event = new MouseEvent('click');
+    if (a.download) {
+    　　if (document.all.a1 == null) { 
+  　　　　objIframe = document.createElement("IFRAME"); 
+  　　　　document.body.insertBefore(objIframe); 
+  　　　　objIframe.outerHTML = "<iframe name=a1 style='width:400px;hieght:300px' src=" + imageName.href + "></iframe>"; 
+  　　　　re = setTimeout("savepic()", 1) 
+    　　} else { 
+    　　　　clearTimeout(re) 
+    　　　　pic = window.open(imageName.href, "a1") 
+    　　　　pic.document.execCommand("SaveAs") 
+    　　　　document.all.a1.removeNode(true) 
+    　　} 
+    } else {
+      a.download = name || '下载图片名称';
+      a.href = url;
+      a.dispatchEvent(event);
+    }
+  })
 
 
 </script>
