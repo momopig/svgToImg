@@ -1,9 +1,12 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <style>
   #chartSVG {
     width: 1000px;
     height: 1000px;
+  }
+  #imgIframe {
+    display: none;
   }
   /* Apply these styles only when #preview-pane has
    been placed within the Jcrop widget */
@@ -43,496 +46,76 @@
 <body>
   <p>svg:</p>
   <div id="chartSVG">
-    <svg class="chart-container" font-size="12" width="1157" height="861" style="display: block;">
-      <g></g>
-      <g class="chart-layer" transform="translate(0,0) scale(1)">
-        <g class="links">
-          <g class="actual_controller">
-            <path class="link actual_controller" linkIndex="1" linkMap="3" marker-end="url(#arrow_actual_controller)" d="M556.574788963638,431.064681875724A641.070917856204,641.070917856204 0 0 1,603.2841097877515,126.19342591262996"
-              id="actual_controller/15F726DFB873F84E7CDC17E57B9093FC"></path>
-            <text class="link-name actual_controller" transform="translate(-5, 0)">
-              <textPath xlink:href="#actual_controller/15F726DFB873F84E7CDC17E57B9093FC" startOffset="50%">实际控制人</textPath>
-            </text>
-          </g>
-          <g class="actual_controller">
-            <path class="link actual_controller" linkIndex="1" linkMap="3" marker-end="url(#arrow_actual_controller)" d="M556.574788963638,431.064681875724A629.2204954600282,629.2204954600282 0 0 1,263.24526799185134,356.22095649937165"
-              id="actual_controller/97B6560D6A64A78A305FFD1C13264AF7"></path>
-            <text class="link-name actual_controller" transform="translate(0, -5)">
-              <textPath xlink:href="#actual_controller_97B6560D6A64A78A305FFD1C13264AF7_reverse" startOffset="50%">实际控制人</textPath>
-            </text>
-          </g>
-          <g class="control_shareholder">
-            <path class="link control_shareholder" linkIndex="2" linkMap="3" marker-end="url(#arrow_control_shareholder)" d="M556.574788963638,431.064681875724A0,0 0 0 1,263.24526799185134,356.22095649937165"
-              id="control_shareholder/24088C796182EEE8C2FB5387498ED4AD"></path>
-            <text class="link-name control_shareholder" transform="translate(0, -5)">
-              <textPath xlink:href="#control_shareholder_24088C796182EEE8C2FB5387498ED4AD_reverse" startOffset="50%">控股股东</textPath>
-            </text>
-          </g>
-          <g class="control_shareholder">
-            <path class="link control_shareholder" linkIndex="2" linkMap="3" marker-end="url(#arrow_control_shareholder)" d="M556.574788963638,431.064681875724A0,0 0 0 1,603.2841097877515,126.19342591262996"
-              id="control_shareholder/E6F05B49CA499BA55B694E4ECE75B63B"></path>
-            <text class="link-name control_shareholder" transform="translate(-5, 0)">
-              <textPath xlink:href="#control_shareholder/E6F05B49CA499BA55B694E4ECE75B63B" startOffset="50%">控股股东</textPath>
-            </text>
-          </g>
-          <g class="invest clickable-link">
-            <path class="link invest clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_invest)" d="M556.574788963638,431.064681875724A0,0 0 0 1,845.9026495388459,484.8506961170625"
-              id="invest/8955F0E3E9D15ACB75E3A52C56B5607B"></path>
-            <text class="link-name invest" transform="translate(0, -5)">
-              <textPath xlink:href="#invest/8955F0E3E9D15ACB75E3A52C56B5607B" startOffset="50%">投资</textPath>
-            </text>
-          </g>
-          <g class="invest clickable-link">
-            <path class="link invest clickable-link" linkIndex="3" linkMap="3" marker-end="url(#arrow_invest)" d="M556.574788963638,431.064681875724A629.2204954600282,629.2204954600282 0 0 0,263.24526799185134,356.22095649937165"
-              id="invest/B7A6538D2AF30BCEE423E989F87D6A96"></path>
-            <text class="link-name invest" transform="translate(0, -5)">
-              <textPath xlink:href="#invest_B7A6538D2AF30BCEE423E989F87D6A96_reverse" startOffset="50%">投资（10000.00万元）,占比100.00%</textPath>
-            </text>
-          </g>
-          <g class="invest clickable-link">
-            <path class="link invest clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_invest)" d="M556.574788963638,431.064681875724A0,0 0 0 1,480.4539612217815,724.5115438516069"
-              id="invest/D5F1007E4C234CA382A0D98051AC4238"></path>
-            <text class="link-name invest" transform="translate(-5, 0)">
-              <textPath xlink:href="#invest_D5F1007E4C234CA382A0D98051AC4238_reverse" startOffset="50%">投资（2500.00万元）,占比50.00%</textPath>
-            </text>
-          </g>
-          <g class="invest clickable-link">
-            <path class="link invest clickable-link" linkIndex="3" linkMap="3" marker-end="url(#arrow_invest)" d="M556.574788963638,431.064681875724A641.070917856204,641.070917856204 0 0 0,603.2841097877515,126.19342591262996"
-              id="invest/E252A644E840ABB8DE5A51273FC89F94"></path>
-            <text class="link-name invest" transform="translate(-5, 0)">
-              <textPath xlink:href="#invest/E252A644E840ABB8DE5A51273FC89F94" startOffset="50%">投资（1800.00万元）,占比90.00%</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M500.9470812660354,142.10594496907072A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/2B867301E2CEEDC3CC7D71ECD48D0B30"></path>
-            <text class="link-name officer" transform="translate(5, 0)">
-              <textPath xlink:href="#officer/2B867301E2CEEDC3CC7D71ECD48D0B30" startOffset="50%">高管（董事兼总经理）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M697.4702248652331,158.43498400367594A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/391C9770B5FE2FAA65ED486FA699C964"></path>
-            <text class="link-name officer" transform="translate(-5, 0)">
-              <textPath xlink:href="#officer_391C9770B5FE2FAA65ED486FA699C964_reverse" startOffset="50%">高管（董事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M836.3049580914693,297.3895773169332A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/56428422CDDB86735A4B20E58BA2A2DA"></path>
-            <text class="link-name officer" transform="translate(0, -5)">
-              <textPath xlink:href="#officer_56428422CDDB86735A4B20E58BA2A2DA_reverse" startOffset="50%">高管（监事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M768.0583899121817,649.6557002148647A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/582D43F9B36AC74F653BE0E3D3D3DBC3"></path>
-            <text class="link-name officer" transform="translate(5, 0)">
-              <textPath xlink:href="#officer_582D43F9B36AC74F653BE0E3D3D3DBC3_reverse" startOffset="50%">高管（董事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M591.8065847467684,736.6201749411421A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/62BCDBBC2A175EFBC67C76229B32B6E2"></path>
-            <text class="link-name officer" transform="translate(5, 0)">
-              <textPath xlink:href="#officer_62BCDBBC2A175EFBC67C76229B32B6E2_reverse" startOffset="50%">高管（监事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M836.52691483821,579.8439989613281A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/786FEC2D054CE43E1A76E20F7DA50D52"></path>
-            <text class="link-name officer" transform="translate(0, -5)">
-              <textPath xlink:href="#officer_786FEC2D054CE43E1A76E20F7DA50D52_reverse" startOffset="50%">高管（董事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M300.0948806348314,585.3692015072269A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/7BD742F83382AC1B6C926835835DD601"></path>
-            <text class="link-name officer" transform="translate(-5, 0)">
-              <textPath xlink:href="#officer/7BD742F83382AC1B6C926835835DD601" startOffset="50%">高管（监事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M268.03290675053177,475.56883668368965A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/7DFCE47754A7EA92C2C70D3B8DD9339D"></path>
-            <text class="link-name officer" transform="translate(0, -5)">
-              <textPath xlink:href="#officer/7DFCE47754A7EA92C2C70D3B8DD9339D" startOffset="50%">高管（董事长,法定代表人）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M379.0691895244585,674.6178110356362A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/82B3726FD1D611F5C74E3AC003786EC2"></path>
-            <text class="link-name officer" transform="translate(-5, 0)">
-              <textPath xlink:href="#officer/82B3726FD1D611F5C74E3AC003786EC2" startOffset="50%">高管（董事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M688.9359137436339,710.2895684877259A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/A206E693775E64C06ABECF587D8D68AC"></path>
-            <text class="link-name officer" transform="translate(5, 0)">
-              <textPath xlink:href="#officer_A206E693775E64C06ABECF587D8D68AC_reverse" startOffset="50%">高管（董事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M872.178196156339,390.96529654000153A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/B7B0F9D99D060EC9E12882484EBAD12D"></path>
-            <text class="link-name officer" transform="translate(0, -5)">
-              <textPath xlink:href="#officer_B7B0F9D99D060EC9E12882484EBAD12D_reverse" startOffset="50%">高管（监事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M773.935046562856,223.36887376589448A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/F193AD74FCC84D7F4FAE3A4A873BBFE6"></path>
-            <text class="link-name officer" transform="translate(-5, 0)">
-              <textPath xlink:href="#officer_F193AD74FCC84D7F4FAE3A4A873BBFE6_reverse" startOffset="50%">高管（董事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M324.75606324569316,253.13881527469894A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/FE1C62E438DB956A9C497D9D47D73FE0"></path>
-            <text class="link-name officer" transform="translate(5, 0)">
-              <textPath xlink:href="#officer/FE1C62E438DB956A9C497D9D47D73FE0" startOffset="50%">高管（董事）</textPath>
-            </text>
-          </g>
-          <g class="officer clickable-link">
-            <path class="link officer clickable-link" linkIndex="1" linkMap="1" marker-end="url(#arrow_officer)" d="M401.99122600136366,177.92149099387737A0,0 0 0 1,556.574788963638,431.064681875724"
-              id="officer/FE2A509826AE8A700A0342F78B804E8B"></path>
-            <text class="link-name officer" transform="translate(5, 0)">
-              <textPath xlink:href="#officer/FE2A509826AE8A700A0342F78B804E8B" startOffset="50%">高管（监事）</textPath>
-            </text>
-          </g>
-        </g>
-        <g class="nodes">
-          <g class="node" node-type="Company" transform="translate(603.2841097877515,126.19342591262996)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">湘西自治州酒鬼酒销售有限公司</tspan>
-              <tspan class="">[</tspan>
-              <tspan class="risk-status">注销</tspan>
-              <tspan class="">]</tspan>
-            </text>
-            <image xlink:href="/graph/Company.svg" width="40" height="40" contextMenuTarget="true" type="Company" id="Company/7490F080D6FA4319F924943607B5F274"
-              name="湘西自治州酒鬼酒销售有限公司" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Company" transform="translate(480.4539612217815,724.5115438516069)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">酒鬼洞藏酒销售有限公司</tspan>
-            </text>
-            <image xlink:href="/graph/Company.svg" width="40" height="40" contextMenuTarget="true" type="Company" id="Company/8069BE5C0A217057B54E9C7C13A513E8"
-              name="酒鬼洞藏酒销售有限公司" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Company" transform="translate(845.9026495388459,484.8506961170625)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">深圳市利新源科技投资有限公司</tspan>
-            </text>
-            <image xlink:href="/graph/Company.svg" width="40" height="40" contextMenuTarget="true" type="Company" id="Company/BE0F52B58A744E4814F488702C8E6D7D"
-              name="深圳市利新源科技投资有限公司" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Company" transform="translate(556.574788963638,431.064681875724)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">酒鬼酒股份有限公司</tspan>
-            </text>
-            <image xlink:href="/graph/Company.svg" width="40" height="40" contextMenuTarget="true" type="Company" id="Company/F4BE41DED06D46D4563C509C7E529C4E"
-              name="酒鬼酒股份有限公司" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Company" transform="translate(263.24526799185134,356.22095649937165)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">酒鬼酒供销有限责任公司</tspan>
-            </text>
-            <image xlink:href="/graph/Company.svg" width="40" height="40" contextMenuTarget="true" type="Company" id="Company/FBCE3F4CD8B2BEEA3575DE8796827B06"
-              name="酒鬼酒供销有限责任公司" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(773.935046562856,223.36887376589448)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">郑应南</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/0D83D24C4FAE444B4A531BC7D58C565D"
-              name="郑应南" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(591.8065847467684,736.6201749411421)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">滕建新</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/27E495EAF76CE2082D1F95FCECD7D438"
-              name="滕建新" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(500.9470812660354,142.10594496907072)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">董顺钢</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/3776BBDF9E6C686864B56E5B77957002"
-              name="董顺钢" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(836.52691483821,579.8439989613281)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">付磊</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/58BADD519339685CF6B36ECFA8EB04C0"
-              name="付磊" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(300.0948806348314,585.3692015072269)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">李小平</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/84919B15377492E1603E8A472FE7387F"
-              name="李小平" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(697.4702248652331,158.43498400367594)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">姚小义</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/8BB1EE8F90C151EF0AD0C6CCC7F183C1"
-              name="姚小义" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(688.9359137436339,710.2895684877259)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">夏心国</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/A371FE56C8981B3815D8948801084119"
-              name="夏心国" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(324.75606324569316,253.13881527469894)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">逯晓辉</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/A68F2EE12047686508274E444A6AE92B"
-              name="逯晓辉" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(872.178196156339,390.96529654000153)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">李文生</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/BBF698E38AE26777229CA5FF7DBC0ABD"
-              name="李文生" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(379.0691895244585,674.6178110356362)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">王茹芹</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/BD7D390B4C850FF8E9554049D6B3EE90"
-              name="王茹芹" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(401.99122600136366,177.92149099387737)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">刘龙</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/BF1AD8C384D2C8BBE532D2B5F9DA4789"
-              name="刘龙" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(768.0583899121817,649.6557002148647)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">黄镇茂</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/C40F35691028B9872CB5E8F95A68DDC9"
-              name="黄镇茂" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(268.03290675053177,475.56883668368965)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">江国金</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/C61CABF103A54CC211170D9854CD3801"
-              name="江国金" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-          <g class="node" node-type="Person" transform="translate(836.3049580914693,297.3895773169332)">
-            <circle r="20" class="circle"></circle>
-            <text class="node-name" y="35" style="text-anchor: middle;">
-              <tspan y="35" x="0" class="">郑达财</tspan>
-            </text>
-            <image xlink:href="/graph/Person.svg" width="40" height="40" contextMenuTarget="true" type="Person" id="Person/EAD780D1A73F770EFEE27E25CDE39DAB"
-              name="郑达财" x="-20" y="-20"></image>
-            <g class="tag-label"></g>
-          </g>
-        </g>
-      </g>
-      <defs>
-        <marker id="arrow_invest" class="arrow-marker invest" refX="29" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-        <path id="actual_controller_15F726DFB873F84E7CDC17E57B9093FC_reverse" d="M603.2841097877515,126.19342591262996A641.070917856204,641.070917856204 0 0 0,556.574788963638,431.064681875724"></path>
-        <path id="actual_controller_97B6560D6A64A78A305FFD1C13264AF7_reverse" d="M263.24526799185134,356.22095649937165A629.2204954600282,629.2204954600282 0 0 0,556.574788963638,431.064681875724"></path>
-        <path id="control_shareholder_24088C796182EEE8C2FB5387498ED4AD_reverse" d="M263.24526799185134,356.22095649937165A0,0 0 0 0,556.574788963638,431.064681875724"></path>
-        <path id="control_shareholder_E6F05B49CA499BA55B694E4ECE75B63B_reverse" d="M603.2841097877515,126.19342591262996A0,0 0 0 0,556.574788963638,431.064681875724"></path>
-        <path id="invest_8955F0E3E9D15ACB75E3A52C56B5607B_reverse" d="M845.9026495388459,484.8506961170625A0,0 0 0 0,556.574788963638,431.064681875724"></path>
-        <path id="invest_B7A6538D2AF30BCEE423E989F87D6A96_reverse" d="M263.24526799185134,356.22095649937165A629.2204954600282,629.2204954600282 0 0 1,556.574788963638,431.064681875724"></path>
-        <path id="invest_D5F1007E4C234CA382A0D98051AC4238_reverse" d="M480.4539612217815,724.5115438516069A0,0 0 0 0,556.574788963638,431.064681875724"></path>
-        <path id="invest_E252A644E840ABB8DE5A51273FC89F94_reverse" d="M603.2841097877515,126.19342591262996A641.070917856204,641.070917856204 0 0 1,556.574788963638,431.064681875724"></path>
-        <path id="officer_2B867301E2CEEDC3CC7D71ECD48D0B30_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,500.9470812660354,142.10594496907072"></path>
-        <path id="officer_391C9770B5FE2FAA65ED486FA699C964_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,697.4702248652331,158.43498400367594"></path>
-        <path id="officer_56428422CDDB86735A4B20E58BA2A2DA_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,836.3049580914693,297.3895773169332"></path>
-        <path id="officer_582D43F9B36AC74F653BE0E3D3D3DBC3_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,768.0583899121817,649.6557002148647"></path>
-        <path id="officer_62BCDBBC2A175EFBC67C76229B32B6E2_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,591.8065847467684,736.6201749411421"></path>
-        <path id="officer_786FEC2D054CE43E1A76E20F7DA50D52_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,836.52691483821,579.8439989613281"></path>
-        <path id="officer_7BD742F83382AC1B6C926835835DD601_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,300.0948806348314,585.3692015072269"></path>
-        <path id="officer_7DFCE47754A7EA92C2C70D3B8DD9339D_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,268.03290675053177,475.56883668368965"></path>
-        <path id="officer_82B3726FD1D611F5C74E3AC003786EC2_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,379.0691895244585,674.6178110356362"></path>
-        <path id="officer_A206E693775E64C06ABECF587D8D68AC_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,688.9359137436339,710.2895684877259"></path>
-        <path id="officer_B7B0F9D99D060EC9E12882484EBAD12D_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,872.178196156339,390.96529654000153"></path>
-        <path id="officer_F193AD74FCC84D7F4FAE3A4A873BBFE6_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,773.935046562856,223.36887376589448"></path>
-        <path id="officer_FE1C62E438DB956A9C497D9D47D73FE0_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,324.75606324569316,253.13881527469894"></path>
-        <path id="officer_FE2A509826AE8A700A0342F78B804E8B_reverse" d="M556.574788963638,431.064681875724A0,0 0 0 0,401.99122600136366,177.92149099387737"></path>
-      </defs>
-      <defs>
-        <marker id="arrowStart_invest" class="arrow-marker invest" refX="-20" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow_shareholder" class="arrow-marker shareholder" refX="29" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrowStart_shareholder" class="arrow-marker shareholder" refX="-20" refY="5" markerUnits="userSpaceOnUse"
-          markerWidth="20" markerHeight="20" orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow_officer" class="arrow-marker officer" refX="29" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrowStart_officer" class="arrow-marker officer" refX="-20" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow_concert" class="arrow-marker concert" refX="29" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrowStart_concert" class="arrow-marker concert" refX="-20" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow_actual_controller" class="arrow-marker actual_controller" refX="29" refY="5" markerUnits="userSpaceOnUse"
-          markerWidth="20" markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrowStart_actual_controller" class="arrow-marker actual_controller" refX="-20" refY="5" markerUnits="userSpaceOnUse"
-          markerWidth="20" markerHeight="20" orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow_control_shareholder" class="arrow-marker control_shareholder" refX="29" refY="5" markerUnits="userSpaceOnUse"
-          markerWidth="20" markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrowStart_control_shareholder" class="arrow-marker control_shareholder" refX="-20" refY="5" markerUnits="userSpaceOnUse"
-          markerWidth="20" markerHeight="20" orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow_family" class="arrow-marker family" refX="29" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrowStart_family" class="arrow-marker family" refX="-20" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow_guarantee" class="arrow-marker guarantee" refX="29" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrowStart_guarantee" class="arrow-marker guarantee" refX="-20" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow" class="arrow-marker " refX="29" refY="5" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20"
-          orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrowStart" class="arrow-marker " refX="-20" refY="5" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20"
-          orient="auto">
-          <path d="M10,0 L0,5 L10,10 L8,5 z"></path>
-        </marker>
-      </defs>
-      <defs>
-        <marker id="arrow_highlight" class="arrow-marker highlight" refX="29" refY="5" markerUnits="userSpaceOnUse" markerWidth="20"
-          markerHeight="20" orient="auto">
-          <path d="M0,0 L10,5 L0,10 L2,5 z"></path>
-        </marker>
-      </defs>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.1">
+      <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:1; stroke:rgb(0,0,0)"/>
+      </svg>
   </div>
   <p>img:</p>
-  <img id="target" />
+  <img id="target" crossOrigin="Anonymous"/>
   <div id="preview-pane">
     <div class="preview-container">
       <img src="" class="jcrop-preview" alt="Preview" />
     </div>
   </div>
   <div id="crop">裁剪</div>
-  <canvas id="canvas"></canvas>
+  <canvas id="canvas" crossOrigin="Anonymous"></canvas>
+  <iframe id="imgIframe"></iframe>
 </body>
 <script type="text/javascript" src="./jquery-1.12.4.js"></script>
 <script type="text/javascript" src="./jquery.base64.min.js"></script>
 <script type="text/javascript" src="./js/jquery.Jcrop.js"></script>
-
+<script type="text/javascript" src="./js/Blob.js"></script>
+<script type="text/javascript" src="./js/FileSaver.min.js"></script>
+<!-- <script type="text/javascript" src="./js/canvas-toBlob.js"></script> -->
 
 <script>
+  jQuery.download = function(url, data, method){
+    //url and data options required
+    if( url && data ){
+        //data can be string of parameters or array/object
+        data = typeof data == 'string' ? data : jQuery.param(data);
+        //split params into form inputs
+        var inputs = '';
+        jQuery.each(data.split('&'), function(){
+            var pair = this.split('=');
+            inputs+='<input type="hidden" name="'+ pair[0] +'" value="'+ pair[1] +'" />';
+        });
+        //send request
+        jQuery('<form action="'+ url +'" method="'+ (method||'post') +'">'+inputs+'</form>')
+        .appendTo('body').submit().remove();
+    };
+  };
+
+  //无窗口弹出   
+  function mm1(url)     
+  {     
+    window.frames["imgIframe"].location.href = url;     
+    sa();     
+  }     
+  function sa() {   
+      if(window.frames["imgIframe"].document.readyState!="complete") {
+        setTimeout("sa()",   1000);     
+      } else {
+        window.frames["imgIframe"].document.execCommand('SaveAs');     
+      }     
+  }
+
+  /**
+   * @desc 将svg img对应的data url传给后端，后端生成一个jpg或png图片，并返回该图片的rul给前端
+   * 
+  */
+  function getImgUrlFromServer(dataUrl, imgType, callback) {
+    $.ajax({
+      method: 'post',
+      body: {
+        dataUrl: dataUrl
+      },
+      success: function(data) {
+          callback(data.url)
+      }
+    })
+  }
+
   var compressSpaces = function (s) { return s.replace(/[\s\r\t\n]+/gm, ' '); }
   var trim = function (s) { return s.replace(/^\s+|\s+$/g, ''); }
   var cssDom = document.createElement('style');
@@ -575,7 +158,7 @@
   } else if (svgDom.xml) {
     xmlSVG = svgDom.xml;
   }
-  var url = 'data:image/svg+xml;base64,' + jQuery.base64.encode(unescape(encodeURIComponent(xmlSVG)));
+  var dataUrl_svgImg = 'data:image/svg+xml;base64,' + jQuery.base64.encode(unescape(encodeURIComponent(xmlSVG)));
   var imageDom = document.getElementById('target');
   var locationInf;
   imageDom.onload = function () {
@@ -592,7 +175,7 @@
     var xsize = $pcnt.width();
     var ysize = $pcnt.height();
 
-    $pimg.attr('src', url);
+    $pimg.attr('src', dataUrl_svgImg);
     $('#target').Jcrop({
       onChange: updatePreview,
       onSelect: updatePreview,
@@ -636,7 +219,19 @@
     };
 
   }
-  imageDom.src = url;
+  imageDom.crossOrigin = "anonymous";  // This enables CORS
+  imageDom.src = dataUrl_svgImg;
+
+    //**dataURL to blob**
+    function dataURLtoBlob(dataurl) {
+        var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new Blob([u8arr], {type:mime});
+    }
+
   $('#crop').on('click', function() {
     var canvas = document.getElementById('canvas');
     var $img = $('.jcrop-holder img');
@@ -644,27 +239,26 @@
     canvas.height = locationInf.h;
     canvas.style.backgroundColor = 'white';
     var ctx = canvas.getContext('2d');
-    ctx.drawImage(imageDom, locationInf.x, locationInf.y, locationInf.w, locationInf.h, 0, 0, locationInf.w, locationInf.h)
-    var url = canvas.toDataURL('image/png');
+    ctx.drawImage(imageDom, locationInf.x, locationInf.y, locationInf.w, locationInf.h, 0, 0, locationInf.w, locationInf.h);
     var a = document.createElement('a');
-    var event = new MouseEvent('click');
-    if (a.download) {
-    　　if (document.all.a1 == null) { 
-  　　　　objIframe = document.createElement("IFRAME"); 
-  　　　　document.body.insertBefore(objIframe); 
-  　　　　objIframe.outerHTML = "<iframe name=a1 style='width:400px;hieght:300px' src=" + imageName.href + "></iframe>"; 
-  　　　　re = setTimeout("savepic()", 1) 
-    　　} else { 
-    　　　　clearTimeout(re) 
-    　　　　pic = window.open(imageName.href, "a1") 
-    　　　　pic.document.execCommand("SaveAs") 
-    　　　　document.all.a1.removeNode(true) 
-    　　} 
-    } else {
-      a.download = name || '下载图片名称';
-      a.href = url;
-      a.dispatchEvent(event);
+
+    // chrome
+    if (a.download !== undefined) {
+        var dataUrl_canvas = canvas.toDataURL();
+        var event = new MouseEvent('click');
+        a.download = name || '下载图片名称';
+        a.href = dataUrl_canvas;
+        a.dispatchEvent(event);
+    } else { //ie
+
+        
+        getImgUrlFromServer(dataUrl_svgImg, 'png', function(url) {
+          mm1(url);
+        })
+
+
     }
+
   })
 
 
